@@ -1,7 +1,10 @@
 import Button from "react-bootstrap/Button";
 import { Card as CardB, ListGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 
 const Card = ({ pizza }) => {
+ const navigate = useNavigate();
 
   return (
     <CardB style={{ width: "18rem" }}>
@@ -24,7 +27,12 @@ const Card = ({ pizza }) => {
         <hr />
         <CardB.Text className="text-center fs-3">${pizza.price}</CardB.Text>
         <div className="d-flex justify-content-around">
-          <Button variant="info">Ver Más</Button>
+          <Button
+            variant="info"
+            onClick={(e) => navigate(`/pizzas/${pizza.id}`)}
+          >
+            Ver Más
+          </Button>
           <Button variant="danger">Añadir</Button>
         </div>
       </CardB.Body>

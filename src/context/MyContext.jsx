@@ -13,8 +13,6 @@ export const MyProvider = ({ children }) => {
     const data = await response.json()
 
     setPizzas(data);
-  
-    console.log(pizzas);
   };
 
   useEffect(() => {
