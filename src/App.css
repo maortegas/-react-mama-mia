@@ -1,0 +1,6 @@
+.borderless {
+border-width: 0;
+}
+.list-group li:nth-child(1) {
+    border-top: 0 none;
+}
