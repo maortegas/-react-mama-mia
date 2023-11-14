@@ -1,10 +1,12 @@
-import Button from "react-bootstrap/Button";
-import { Card as CardB, ListGroup } from "react-bootstrap";
+import { Card as CardB, ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { MyContext } from "../context/MyContext";
 
 
-const Card = ({ pizza }) => {
- const navigate = useNavigate();
+const Card = ({ pizza, agregaCarro }) => {
+  const navigate = useNavigate();
+ 
 
   return (
     <CardB style={{ width: "18rem" }}>
@@ -33,12 +35,13 @@ const Card = ({ pizza }) => {
           >
             Ver Más
           </Button>
-          <Button variant="danger">Añadir</Button>
+          <Button variant="danger" onClick={(e) => agregaCarro(pizza)}>
+            Añadir
+          </Button>
         </div>
       </CardB.Body>
     </CardB>
   );
-
 };
 
 export default Card;
