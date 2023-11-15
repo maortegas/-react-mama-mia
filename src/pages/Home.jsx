@@ -1,10 +1,7 @@
 import { useContext, useState } from "react";
 import { MyContext } from "../context/MyContext";
 import Card from "../components/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
+import { Container, Row, Col } from "react-bootstrap/";
 
 const Home = () => {
   const { pizzas, agregaCarro } = useContext(MyContext);
