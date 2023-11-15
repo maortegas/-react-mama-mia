@@ -9,6 +9,29 @@ export const MyProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [compras, setCompras] = useState([]);
 
+ const eliminaCarro = (pizza) => {
+   if (compras.find((elemento) => elemento.id === pizza.id)) {
+     const producto = compras.map((item) =>
+       item.id === pizza.id ? { ...item, quantity: item.quantity - 1 } : item
+     );
+     return setCompras([...producto]);
+   } else {
+     pizza.quantity = 1;
+   }
+   setCompras([...compras, pizza]);
+ };
+
+ const agregaCarro = (pizza) => {
+   if (compras.find((elemento) => elemento.id === pizza.id)) {
+     const producto = compras.map((item) =>
+       item.id === pizza.id ? { ...item, quantity: item.quantity + 1 } : item
+     );
+     return setCompras([...producto]);
+   } else {
+     pizza.quantity = 1;
+   }
+   setCompras([...compras, pizza]);
+ };
 
 
   const getPizzas = async () => {
@@ -23,7 +46,17 @@ export const MyProvider = ({ children }) => {
   }, []);
 
   return (
-    <MyContext.Provider value={{ pizzas, total, setTotal, compras, setCompras }}>
+    <MyContext.Provider
+      value={{
+        pizzas,
+        total,
+        setTotal,
+        compras,
+        setCompras,
+        eliminaCarro,
+        agregaCarro
+      }}
+    >
       {children}
     </MyContext.Provider>
   );

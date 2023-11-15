@@ -27,7 +27,9 @@ const Card = ({ pizza, agregaCarro }) => {
           ))}
         </ListGroup>
         <hr />
-        <CardB.Text className="text-center fs-3">${pizza.price}</CardB.Text>
+        <CardB.Text className="text-center fs-3">
+          ${new Intl.NumberFormat("es-CL").format(pizza.price)}
+        </CardB.Text>
         <div className="d-flex justify-content-around">
           <Button
             variant="info"

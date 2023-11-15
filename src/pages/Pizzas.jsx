@@ -5,7 +5,7 @@ import { MyContext } from "../context/MyContext";
 
 const Pizzas = () => {
   const { id } = useParams();
-  const { pizzas } = useContext(MyContext);
+  const { pizzas, agregaCarro } = useContext(MyContext);
 
   let pizza = pizzas.filter((elemento) => elemento.id == id);
 
@@ -19,7 +19,7 @@ return (
         <div className="col-md-6">
           <div className="card-body">
             <h5 className="card-title">{pizza[0].name}</h5>
-            <hr  className="m-0"/>
+            <hr className="m-0" />
             <p className="card-text p-0 ">{pizza[0].desc}</p>
             <h6>Ingredientes:</h6>
             <ListGroup className="list-group list-group-flush fs-6 ">
@@ -35,8 +35,10 @@ return (
             </ListGroup>
             <br />
             <div className="d-flex justify-content-between">
-              <h1>${pizza[0].price}</h1>
-              <Button variant="danger">Añadir</Button>
+              <h1>${new Intl.NumberFormat("es-CL").format(pizza[0].price)}</h1>
+              <Button variant="danger" onClick={(e) => agregaCarro(pizza[0])}>
+                Añadir
+              </Button>
             </div>
           </div>
         </div>
