@@ -14,7 +14,8 @@ export const MyProvider = ({ children }) => {
      const producto = compras.map((item) =>
        item.id === pizza.id ? { ...item, quantity: item.quantity - 1 } : item
      );
-     return setCompras([...producto]);
+   
+      return setCompras([...producto]);
    } else {
      pizza.quantity = 1;
    }
