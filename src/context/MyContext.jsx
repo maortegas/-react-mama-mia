@@ -5,7 +5,6 @@ export const MyContext = createContext();
 const urlBase ="/pizzas.json"
 export const MyProvider = ({ children }) => {
   const [pizzas, setPizzas] = useState([]);
-  const [total, setTotal] = useState(0);
   const [compras, setCompras] = useState([]);
 
  const eliminaCarro = (pizza) => {
