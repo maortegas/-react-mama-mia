@@ -10,13 +10,15 @@ const NavBar = () => {
 
   return (
     <div className="navbar__container">
-      <div>
+      <div className="nav__bar">
         <img src="/pizza.png" alt="" width={40} />
         <NavLink to="/">Pizzería Mamma Mia!</NavLink>
       </div>
       <div>
         <div className="nav__bar">
-          <NavLink to="/carrito/"><Total /></NavLink>
+          <NavLink to="/carrito/">
+            <Total />
+          </NavLink>
         </div>
       </div>
     </div>
