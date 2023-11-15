@@ -15,6 +15,11 @@ export const MyProvider = ({ children }) => {
        item.id === pizza.id ? { ...item, quantity: item.quantity - 1 } : item
      );
    
+     if (producto[0].quantity<1) {
+        const deletePizza= compras.filter(ele => ele.id !==pizza.id)
+       return setCompras([...deletePizza]);
+     }
+     
       return setCompras([...producto]);
    } else {
      pizza.quantity = 1;
