@@ -1,12 +1,9 @@
 import { Card as CardB, ListGroup, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
-import { MyContext } from "../context/MyContext";
 
 
 const Card = ({ pizza, agregaCarro }) => {
   const navigate = useNavigate();
- 
 
   return (
     <CardB style={{ width: "18rem" }}>

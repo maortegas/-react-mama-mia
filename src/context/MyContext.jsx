@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react";
 
 export const MyContext = createContext();
 
-
 const urlBase ="/pizzas.json"
 export const MyProvider = ({ children }) => {
   const [pizzas, setPizzas] = useState([]);
@@ -39,7 +38,6 @@ export const MyProvider = ({ children }) => {
    setCompras([...compras, pizza]);
  };
 
-
   const getPizzas = async () => {
     const response = await fetch(urlBase)
     const data = await response.json()
@@ -55,8 +53,6 @@ export const MyProvider = ({ children }) => {
     <MyContext.Provider
       value={{
         pizzas,
-        total,
-        setTotal,
         compras,
         setCompras,
         eliminaCarro,

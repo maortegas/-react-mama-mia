@@ -3,8 +3,6 @@ import { useContext } from "react";
 import { MyContext } from "../context/MyContext";
 import Total from "./Total";
 
-
-
 const NavBar = () => {
      const { total } = useContext(MyContext);
 
@@ -17,6 +15,7 @@ const NavBar = () => {
       <div>
         <div className="nav__bar">
           <NavLink to="/carrito/">
+            <img src="/carrito.png" width={40}  alt="" />
             <Total />
           </NavLink>
         </div>

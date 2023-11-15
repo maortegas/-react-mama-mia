@@ -5,7 +5,6 @@ const Total = () => {
     const { compras } = useContext(MyContext);
     const total = compras.reduce((sum, item) => sum + (item.quantity*item.price),0);
      
-
   return <>{new Intl.NumberFormat("es-CL").format(total)}</>;
 };
 
