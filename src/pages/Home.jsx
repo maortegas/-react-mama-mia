@@ -7,17 +7,27 @@ import Col from "react-bootstrap/Col";
 
 
 const Home = () => {
-  const {pizzas, setCompra, compra} = useContext(MyContext);
+  const {pizzas, setCompras, compras} = useContext(MyContext);
 
-  function agregaCarro(pizza) {
-   setCompra( [...compra,pizza]);
+  const agregaCarro = pizza=> {
+    if (compras.find((elemento) => elemento.id === pizza.id)) {
+      const producto = compras.map((item) =>
+        item.id === pizza.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      return setCompras([...producto]);
+    }
+    else
+    {
+      pizza.quantity=1
+    }
+   setCompras([...compras, pizza]);
  }
 
   return (
     <div>
       <Container>
         <Row>
-          {pizzas.map((pizza) => (
+          {pizzas.map(pizza => (
             <Col xs={12} md={6} lg={4} key={pizza.id} className="p-5">
               <Card pizza={pizza} agregaCarro={agregaCarro} />
             </Col>

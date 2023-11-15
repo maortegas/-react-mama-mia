@@ -7,7 +7,7 @@ const urlBase ="/pizzas.json"
 export const MyProvider = ({ children }) => {
   const [pizzas, setPizzas] = useState([]);
   const [total, setTotal] = useState(0);
-  const [compra, setCompra] = useState([]);
+  const [compras, setCompras] = useState([]);
 
 
 
@@ -23,7 +23,7 @@ export const MyProvider = ({ children }) => {
   }, []);
 
   return (
-    <MyContext.Provider value={{ pizzas, total, setTotal, compra, setCompra }}>
+    <MyContext.Provider value={{ pizzas, total, setTotal, compras, setCompras }}>
       {children}
     </MyContext.Provider>
   );
